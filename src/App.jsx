@@ -15,7 +15,8 @@
 
 // export default App;
 
-import { Box, Heading, Container, Text, Button, Stack, Icon, useColorModeValue, createIcon, Link } from "@chakra-ui/react";
+import { Box, Heading, Container, Text, Button, Stack, Icon, useColorModeValue, createIcon, Link, Image, Flex } from "@chakra-ui/react";
+import config from "./config";
 
 export default function CallToActionWithAnnotation() {
   return (
@@ -24,13 +25,14 @@ export default function CallToActionWithAnnotation() {
         <Stack as={Box} textAlign={"center"} spacing={{ base: 4, md: 10 }} py={{ base: 20, md: 36 }}>
           <Heading fontWeight={600} fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }} lineHeight={"110%"}>
             Book out early with <br />
-            <Text as={"span"} color={"green.400"}>
-              TTT
-            </Text>
+            <Flex alignItems={"center"} justifyContent={"center"} gap={"4"}>
+              <Text as={"span"} color={"green.400"}>
+                TTT
+              </Text>
+              <Image src="ipptsimple 1.svg" boxSize="64px"></Image>
+            </Flex>
           </Heading>
-          <Text color={"gray.500"}>
-            Initiated by 3SG Desmond. Application jointly developed by CPL Jayden & 3SG Ferrois.
-          </Text>
+          <Text color={"gray.500"}>Initiated by 3SG Desmond. Application jointly developed by CPL Jayden & 3SG Ferrois.</Text>
           <Stack direction={"column"} spacing={3} align={"center"} alignSelf={"center"} position={"relative"}>
             <Button
               colorScheme={"green"}
@@ -42,7 +44,9 @@ export default function CallToActionWithAnnotation() {
               }}
               mt={6}
             >
-              <Link href="https://www.strava.com/oauth/authorize?client_id=153615&redirect_uri=http://localhost:8080/auth&response_type=code&scope=activity:read_all">
+              <Link
+                href={`https://www.strava.com/oauth/authorize?client_id=153615&redirect_uri=${config.serverUrl}/auth&response_type=code&scope=activity:read_all`}
+              >
                 Login to Strava
               </Link>
             </Button>

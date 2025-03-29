@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../hooks/useLocalStorage";
+import config from "../config";
 
 const Context = createContext(null);
 
@@ -72,7 +73,7 @@ export function AuthProvider({ children }) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken || ""}`,
     };
-    return axios.get(`http://localhost:8080${url}`, { headers, ...options });
+    return axios.get(`${config.serverUrl}${url}`, { headers, ...options });
   };
 
   //   const authPost = (url, body, options) => {
