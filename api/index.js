@@ -81,7 +81,7 @@ app.get("/auth", async (req, res) => {
 
     // return res.json(response.data);
   } catch (e) {
-    return res.json(["Invalid Code: Error fetching data from Strava.", e]);
+    return res.json(["Invalid Code: Error fetching data from Strava.", "-> Go back and try logining in again."]);
   }
 });
 
@@ -109,7 +109,7 @@ app.get("/user", async (req, res) => {
     return res.json({ userActivities: userActivities.data, userData: userData.data });
   } catch (e) {
     // console.log(e);
-    return res.status(500).json("Something went wrong...");
+    return res.status(500).json("Something went wrong... Try again.");
   }
 });
 
