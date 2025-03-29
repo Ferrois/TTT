@@ -7,7 +7,7 @@ app = 'ttt-48'
 primary_region = 'sin'
 
 [build]
-  command = "node server.js"
+  command = "node index.js"
 
 [http_service]
   internal_port = 3000
